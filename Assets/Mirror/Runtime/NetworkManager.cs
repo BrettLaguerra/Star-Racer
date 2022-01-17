@@ -78,6 +78,9 @@ namespace Mirror
         [Tooltip("Prefab of the player object. Prefab must have a Network Identity component. May be an empty game object or a full avatar.")]
         public GameObject playerPrefab;
 
+        // JB: This is the GameObject for the Star Sphere
+        public GameObject starSphere;
+
         /// <summary>Enable to automatically create player objects on connect and on scene change.</summary>
         [FormerlySerializedAs("m_AutoCreatePlayer")]
         [Tooltip("Should Mirror automatically spawn the player after scene change?")]
@@ -1360,7 +1363,9 @@ namespace Mirror
         public virtual void OnStartHost() {}
 
         /// <summary>This is invoked when a server is started - including when a host is started.</summary>
-        public virtual void OnStartServer() {}
+        public virtual void OnStartServer() {
+            spawnStarSphere();
+        }
 
         /// <summary>This is invoked when the client is started.</summary>
         public virtual void OnStartClient() {}
@@ -1373,5 +1378,14 @@ namespace Mirror
 
         /// <summary>This is called when a host is stopped.</summary>
         public virtual void OnStopHost() {}
+
+
+        //JB: Custom Functions
+
+        void spawnStarSphere() {
+            NetworkServer.Spawn(Instantiate(starSphere));
+        }
     }
 }
+
+
