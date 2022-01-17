@@ -13,6 +13,8 @@ using Mirror;
 
 public class Star : NetworkBehaviour
 {
+    private Mesh mesh;
+    public float y_amount = 0;
 
     [ServerCallback]
     void OnCollisionEnter(Collision other)
@@ -20,17 +22,6 @@ public class Star : NetworkBehaviour
         
         if (other.gameObject.tag == "Player")
             transform.position = GetRandomPoint();
-            
-    }
-
-    public GameObject board;
-    private Mesh mesh;
-    public float y_amount = 0;
-
-    private void Awake()
-    {
-        mesh = board.GetComponent<MeshFilter>().mesh;
-
     }
 
     public Vector3 GetRandomPoint()

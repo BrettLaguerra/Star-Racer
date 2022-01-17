@@ -5,6 +5,18 @@ using Mirror;
 
 public class Player : NetworkBehaviour
 {
+    public int score = 0;
+
+    [ServerCallback]
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Star")
+        {
+            score++;
+            Debug.Log(score);
+        }
+        Debug.Log("Collision Detected");
+    }
     void HandleMovement()
     {
         if (isLocalPlayer)
@@ -16,6 +28,7 @@ public class Player : NetworkBehaviour
 
         }
     }
+    
 
     void FixedUpdate()
     {

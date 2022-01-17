@@ -7,6 +7,19 @@ namespace Mirror.Examples.Pong
         public float speed = 30;
         public Rigidbody2D rigidbody2d;
 
+        public int score = 0;
+
+        [ServerCallback]
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == "Star")
+            {
+                score++;
+
+            }
+            Debug.Log(score);
+        }
+
         // need to use FixedUpdate for rigidbody
         void FixedUpdate()
         {

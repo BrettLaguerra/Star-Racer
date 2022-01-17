@@ -149,8 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  board: {fileID: 0}
+  scoreBoard: {fileID: 0}
   y_amount: 1
+  score: 1
 --- !u!54 &-7915792746219750796
 Rigidbody:
   m_ObjectHideFlags: 0
