@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Star
+  - WallN
+  - WallS
+  - WallE
+  - WallW
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,6 @@ public class Star : NetworkBehaviour
     [ServerCallback]
     void OnCollisionEnter(Collision other)
     {
-        
         if (other.gameObject.tag == "Player")
             transform.position = GetRandomPoint();
     }

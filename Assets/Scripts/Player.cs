@@ -15,7 +15,15 @@ public class Player : NetworkBehaviour
             score++;
             Debug.Log(score);
         }
-        Debug.Log("Collision Detected");
+        if (other.gameObject.tag == "WallN")
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z * -.99f);
+        }
+        if (other.gameObject.tag == "WallW")
+        {
+            transform.position = new Vector3(transform.position.x * -.99f, transform.position.y, transform.position.z);
+        }
+        
     }
     void HandleMovement()
     {
