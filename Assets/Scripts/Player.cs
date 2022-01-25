@@ -29,11 +29,14 @@ public class Player : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            float moveHorizontal = Input.GetAxisRaw("Horizontal");
+            float lookX = Input.GetAxisRaw("Horizontal");
             float moveVertical = Input.GetAxisRaw("Vertical");
-            Vector3 movement = new Vector3(moveHorizontal * .2f, 0, moveVertical * .2f);
-            transform.position = transform.position + movement;
+            float moveHorizontal = Input.GetAxisRaw("Strafe");
 
+            transform.Rotate(Vector3.up * lookX * 2);  
+
+            Vector3 movement = transform.right * moveHorizontal *.1f + transform.forward * moveVertical * .1f;
+            transform.position = transform.position + movement;
         }
     }
     
